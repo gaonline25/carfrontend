@@ -35,11 +35,14 @@ import "./globals.css";
 import Navigation from "@/components/Navbar";
 import Script from "next/script";
 
-export default function RootLayout({
+import { fetchFooterPageData, getImageUrl } from "@/lib/fetchFooterPageComponent";
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+  }) {
+    const footerData = await fetchFooterPageData();
   return (
     <html
       lang="en"
@@ -113,7 +116,7 @@ export default function RootLayout({
       <body>
         <Navigation />
         {children}
-        <Footer />
+        <Footer data={footerData} />
 
         {/* WebFont Loader */}
         <Script

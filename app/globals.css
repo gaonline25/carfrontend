@@ -22121,3 +22121,38 @@ figure {
   visibility: hidden !important;
   opacity: 0 !important;
 }
+
+
+
+
+/* Add to your global CSS file */
+.rich-text-image {
+  margin: 2rem 0;
+  max-width: 100%;
+}
+
+.rich-text-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.rich-text-image figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Ensure rich text content doesn't overflow */
+.hero-rich-text-style.w-richtext {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.hero-rich-text-style.w-richtext img {
+  max-width: 100%;
+  height: auto;
+}

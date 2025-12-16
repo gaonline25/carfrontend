@@ -14,7 +14,7 @@ function HeroSection() {
           <ServiceProcess />
           <CubeGallery />
           <PricingSection />
-          <NewsSection />
+          {/* <NewsSection /> */}
           <NewsletterSection />
     </>
   );
