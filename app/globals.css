@@ -22156,3 +22156,160 @@ figure {
   max-width: 100%;
   height: auto;
 }
+
+body {
+  background-color: #17172b !important;
+}
+
+.nav-bg-cover {
+  background-color: #17172b !important;
+}
+
+.hover-nav-cover {
+  background-color: #92793D !important;
+}
+
+.primary-button {
+  background-color: #92793D !important;
+  border-color: #92793D !important;
+}
+
+.secondary-red-button {
+  border-color: #92793D !important;
+}
+
+.black-subtitle {
+  border-color: #92793D !important;
+}
+
+.page-square-print {
+  background-color: #92793D !important;
+}
+
+.banner-overlay-home-2 {
+  background-image: linear-gradient(135deg, #0000008c, var(--transparent) 55%), linear-gradient(180deg, #0000, #0000000d 43%, #92793D 103%);
+}
+
+.red-grad-1, .red-grad-12, .red-grad-10, .red-grad-11, .red-grad-2, .red-grad-3, .red-grad-6, .red-grad-5, .red-grad-9, .red-grad-7 {
+  background-color: #92793D !important;
+}
+
+.color-section-wrapper {
+  background-color: #17172b !important;
+}
+
+.content-grid, .section-video-content, .history-intro {
+  background-color: #17172b !important;
+}
+
+.history-intro { 
+  background-color: #17172b !important;
+  border-color: #92793D !important;
+}
+
+.full-width-panel {
+  background-color: #17172b !important;
+}
+
+.benefits-progress-50-opasity {
+  border-color: #92793D !important;
+  border-radius: 3px;
+  width: 100%;
+  height: 3px;
+  background-color: #92793D !important;
+}
+
+.faq-intro {
+  background-color: #17172b !important;
+}
+
+.faq-dropdown-down {
+  background-color: #17172b !important;
+  border-color: #92793D !important;
+}
+
+.faq-icon-con {
+  background-color: #92793D !important;
+}
+
+.background-cover {
+  background-color: #2d2d3a !important;
+}
+
+.cube-section {
+  background-color: #17172b !important;
+  border-color: #92793D !important;
+}
+
+.primary-white-button {
+  background-color: #2d2d3a !important;
+  border-color: #92793D !important;
+  color: #fff !important;
+}
+
+.hero-price-item {
+  background-color: #17172b !important;
+}
+
+.price-top {
+  background-color: #3d3e72 !important;
+}
+
+.info-link-wrapper {
+  background-color: #92793D !important;
+}
+
+.link-line-cover {
+  background-color: #92793D !important;
+}
+
+.price-circle-cover {
+  background-color: #92793D !important;
+}
+
+.small-square {
+  background-color: #92793D !important;
+}
+
+.page-square-print {
+  border-color: #92793D !important;
+}
+
+.primary-button-form {
+  background-color: #92793D !important;
+  border-color: #92793D !important;
+}
+
+.form-right, .form-top-left, .form-top-right, .form-bottom-left, .form-bottom-right {
+  border-color: #92793D !important;
+}
+
+.top-cta-line, .bottom-cta-line {
+  background-color: #92793D !important;
+}
+
+.color-section-wrapper-2 {
+  background-color: #17172b !important;
+}
+
+.hero-footer {
+  background-color: #17172b !important;
+  border-color: #92793D !important;
+}
+
+.submit-button {
+  background-color: #92793D !important;
+  border-color: #92793D !important;
+}
+
+.social-network-link {
+  background-color: #92793D !important;
+}
+
+.nav-intro-item.hover-item {
+  color: #17172b !important;
+}
+
+.color-section-wrapper, .content-grid-column {
+  background-color: #17172b !important;
+}
