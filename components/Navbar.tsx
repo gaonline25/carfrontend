@@ -15,7 +15,7 @@ function Navigation() {
       <div className="full-nav-hero-container w-container">
         <div className="menu-item-wrapper">
           <div className="nav-link-wrap">
-            <a href="/home-1" className="brand-logo w-nav-brand">
+            <a href="/" className="brand-logo w-nav-brand">
               <img
                 width="120"
                 height="30"
@@ -28,7 +28,7 @@ function Navigation() {
           <nav role="navigation" className="nav-menu-wrap w-nav-menu">
             <div className="nav-menu-shadow-overlay-5">
               <div className="tablet-menu-5">
-                <a href="/home-1" className="logo-link-mobile w-nav-brand">
+                <a href="/" className="logo-link-mobile w-nav-brand">
                   <img
                     loading="lazy"
                     height="24"
@@ -60,10 +60,16 @@ function Navigation() {
                         <div className="nav-text-wrap">
                           <div className="hero-nav-con">
                             <div className="nav-clip">
-                              <p className="nav-intro-item">Home</p>
+                              <a href="/">
+                                <p className="nav-intro-item">Home</p>
+                              </a>
                             </div>
                             <div className="nav-clip bottom">
-                              <p className="nav-intro-item hover-item">Home</p>
+                              <a href="/">
+                                <p className="nav-intro-item hover-item">
+                                  Home
+                                </p>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -107,12 +113,16 @@ function Navigation() {
                         <div className="nav-text-wrap">
                           <div className="hero-nav-con">
                             <div className="nav-clip">
-                              <p className="nav-intro-item">About Us</p>
+                              <a href="/about-us">
+                                <p className="nav-intro-item">About Us</p>
+                              </a>
                             </div>
                             <div className="nav-clip bottom">
-                              <p className="nav-intro-item hover-item">
-                                About Us
-                              </p>
+                              <a href="/about-us">
+                                <p className="nav-intro-item hover-item">
+                                  About Us
+                                </p>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -150,12 +160,16 @@ function Navigation() {
                         <div className="nav-text-wrap">
                           <div className="hero-nav-con">
                             <div className="nav-clip">
-                              <p className="nav-intro-item">Services</p>
+                              <a href="/services">
+                                <p className="nav-intro-item">Services</p>
+                              </a>
                             </div>
                             <div className="nav-clip bottom">
-                              <p className="nav-intro-item hover-item">
-                                Services
-                              </p>
+                              <a href="/services">
+                                <p className="nav-intro-item hover-item">
+                                  Services
+                                </p>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -179,12 +193,16 @@ function Navigation() {
                         <div className="nav-text-wrap">
                           <div className="hero-nav-con">
                             <div className="nav-clip">
-                              <p className="nav-intro-item">Gallery</p>
+                              <a href="/gallery">
+                                <p className="nav-intro-item">Gallery</p>
+                              </a>
                             </div>
                             <div className="nav-clip bottom">
-                              <p className="nav-intro-item hover-item">
-                                Gallery
-                              </p>
+                              <a href="/gallery">
+                                <p className="nav-intro-item hover-item">
+                                  Gallery
+                                </p>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -208,12 +226,16 @@ function Navigation() {
                         <div className="nav-text-wrap">
                           <div className="hero-nav-con">
                             <div className="nav-clip">
-                              <p className="nav-intro-item">Blog</p>
+                              <a href="/blog">
+                                <p className="nav-intro-item">Blog</p>
+                              </a>
                             </div>
                             <div className="nav-clip bottom">
-                              <p className="nav-intro-item hover-item">
-                                Blog
-                              </p>
+                              <a href="/blog">
+                                <p className="nav-intro-item hover-item">
+                                  Blog
+                                </p>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -501,7 +523,7 @@ function Navigation() {
                       </nav>
                     </div> */}
                     <div className="nav-tablet-btn">
-                      <a href="/contact-us" className="primary-button w-button">
+                      <a href="/contact" className="primary-button w-button">
                         Contact Us
                       </a>
                     </div>
@@ -1012,7 +1034,7 @@ function Navigation() {
               </div>
             </div> */}
             <div className="header-btn-wrap">
-              <a href="/contact-us" className="primary-button w-button">
+              <a href="/contact" className="primary-button w-button">
                 Contact Us
               </a>
             </div>
