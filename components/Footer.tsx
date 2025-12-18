@@ -1771,7 +1771,7 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
               <div className="map-footer-wrap">
                 <div className="hero-map-png"></div>
               </div>
-              <div
+              {/* <div
                 className="footer-lottie"
                 data-w-id="29d2aa05-1ae5-7561-ce49-312ffff31b1f"
                 data-animation-type="lottie"
@@ -1783,7 +1783,7 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
                 data-renderer="svg"
                 data-default-duration="7.142857142857143"
                 data-duration="0"
-              ></div>
+              ></div> */}
               <a
                 href={mapSection.location.mapUrl}
                 target="_blank"
