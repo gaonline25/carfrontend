@@ -53,14 +53,14 @@ export default async function RootLayout({
       <head>
         {/* Basic Meta */}
         <meta charSet="utf-8" />
-        <title>Carsy - Webflow Ecommerce website template</title>
+        <title>Car website</title>
         <meta
           property="og:title"
-          content="Carsy - Webflow Ecommerce website template"
+          content="Car website"
         />
         <meta
           property="twitter:title"
-          content="Carsy - Webflow Ecommerce website template"
+          content="Car website"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content="Webflow" />
@@ -154,7 +154,7 @@ export default async function RootLayout({
         />
 
         {/* Google Analytics */}
-        <Script
+        {/* <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-6PCKDCJBV9"
         />
@@ -167,7 +167,7 @@ export default async function RootLayout({
             gtag("set", "developer_id.dZGVlNj", true);
             gtag("config", "G-6PCKDCJBV9");
           `}
-        </Script>
+        </Script> */}
       </body>
     </html>
   );

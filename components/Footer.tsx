@@ -1769,7 +1769,15 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
               className="navigation-map"
             >
               <div className="map-footer-wrap">
-                <div className="hero-map-png"></div>
+                <div
+                  className="hero-map-png"
+                  style={{
+                    backgroundImage: mapSection.mapBackgroundImage
+                      ?.cloudinary_url
+                      ? `url(${mapSection.mapBackgroundImage.cloudinary_url})`
+                      : "none",
+                  }}
+                ></div>
               </div>
               {/* <div
                 className="footer-lottie"

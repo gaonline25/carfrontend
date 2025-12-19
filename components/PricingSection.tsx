@@ -432,7 +432,7 @@ export default async function PricingSection() {
   const data: PricingData = await fetchPricingSectionComponentData();
 
   if (!data) {
-    return <div>Pricing Section component not found or inactive.</div>;
+    return <div></div>;
   }
 
   const {

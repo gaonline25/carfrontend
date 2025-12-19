@@ -291,6 +291,242 @@
 
 
 
+// // "use client";
+
+// // import { useState, useEffect } from "react";
+// // import { fetchGalleryPageComponentData, getImageUrl } from "@/lib/fetchGalleryPageComponentData";
+
+// // export default function GalleryPage() {
+// //   const [data, setData] = useState<any>(null);
+
+// //   useEffect(() => {
+// //     fetchGalleryPageComponentData().then((fetchedData) => {
+// //       setData(fetchedData);
+
+// //       // Re-initialize Webflow lightbox & interactions
+// //       if (
+// //         fetchedData &&
+// //         typeof window !== "undefined" &&
+// //         (window as any).Webflow
+// //       ) {
+// //         setTimeout(() => {
+// //           (window as any).Webflow.destroy();
+// //           (window as any).Webflow.ready();
+// //           (window as any).Webflow.require("lightbox")?.init();
+// //           (window as any).Webflow.require("ix2")?.init();
+// //         }, 100);
+// //       }
+// //     });
+// //   }, []);
+
+// //   if (!data) {
+// //     return null;
+// //   }
+
+// //   const {
+// //     innerBannerSection = {},
+// //     galleryGridSection = {},
+// //     galleryItems = [],
+// //   } = data;
+
+// //   return (
+// //     <div className="relative-page-wrapper">
+// //       {/* Inner Banner */}
+// //       {innerBannerSection.show && (
+// //         <div className={innerBannerSection.className || "inner-banner"}>
+// //           <div
+// //             className={
+// //               innerBannerSection.containerClassName || "base-container"
+// //             }
+// //           >
+// //             <div
+// //               data-w-id={
+// //                 innerBannerSection.animationId ||
+// //                 "6d36c7d5-e819-f15a-600c-248180f6e8d4"
+// //               }
+// //               className={
+// //                 innerBannerSection.titleWrapperClassName || "inner-title-wrap"
+// //               }
+// //             >
+// //               <h1
+// //                 className={
+// //                   innerBannerSection.titleClassName || "inner-banner-title"
+// //                 }
+// //               >
+// //                 {innerBannerSection.title}
+// //               </h1>
+// //             </div>
+// //           </div>
+
+// //           <div
+// //             className={
+// //               innerBannerSection.clipPhotoClassName || "inner-clip-photo-banner"
+// //             }
+// //           >
+// //             <div
+// //               data-w-id="6d36c7d5-e819-f15a-600c-248180f6e8d8"
+// //               style={{
+// //                 WebkitTransform: `translate3d(0, 0, 0) scale3d(${
+// //                   innerBannerSection.bannerImage?.initialScale || "1.15"
+// //                 }, ${
+// //                   innerBannerSection.bannerImage?.initialScale || "1.15"
+// //                 }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
+// //                 transform: `translate3d(0, 0, 0) scale3d(${
+// //                   innerBannerSection.bannerImage?.initialScale || "1.15"
+// //                 }, ${
+// //                   innerBannerSection.bannerImage?.initialScale || "1.15"
+// //                 }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
+// //               }}
+// //               className={
+// //                 innerBannerSection.bannerImage?.className ||
+// //                 "inner-photo-banner our-gallery-banner"
+// //               }
+// //               style={{
+// //                 backgroundImage: `url("${
+// //                   getImageUrl(innerBannerSection.bannerImage?.desktop) ||
+// //                   innerBannerSection.bannerImage?.mobile?.url ||
+// //                   ""
+// //                 }")`,
+// //                 backgroundSize: "cover",
+// //                 backgroundPosition: "center",
+// //               }}
+// //             ></div>
+
+// //             {innerBannerSection.overlay?.show && (
+// //               <div
+// //                 className={
+// //                   innerBannerSection.overlay.className ||
+// //                   "inner-banner-overlay our-clients-overlay"
+// //                 }
+// //               >
+// //                 {innerBannerSection.overlay.showGradient && (
+// //                   <div
+// //                     className={
+// //                       innerBannerSection.overlay.gradientClassName ||
+// //                       "red-inner-grad-1"
+// //                     }
+// //                   ></div>
+// //                 )}
+// //               </div>
+// //             )}
+// //           </div>
+// //         </div>
+// //       )}
+
+// //       {/* Gallery Grid */}
+// //       {galleryGridSection.show && (
+// //         <div className={galleryGridSection.className || "section-gray"}>
+// //           <div
+// //             className={
+// //               galleryGridSection.innerBackgroundClassName || "soft-black-bg"
+// //             }
+// //           >
+// //             <div
+// //               className={
+// //                 galleryGridSection.containerClassName || "base-container"
+// //               }
+// //             >
+// //               <div
+// //                 className={
+// //                   galleryGridSection.gridClassName || "our-gallery-grid"
+// //                 }
+// //               >
+// //                 {galleryItems.map((item: any) => (
+// //                   <a
+// //                     key={item.id}
+// //                     href="#"
+// //                     id={item.nodeId}
+// //                     className={
+// //                       item.className ||
+// //                       "instagram-link w-inline-block w-lightbox"
+// //                     }
+// //                   >
+// //                     {/* Hover Circle */}
+// //                     {item.hoverCircle?.show && (
+// //                       <div
+// //                         className={
+// //                           item.hoverCircle.wrapperClassName ||
+// //                           "hover-circle-wrapper"
+// //                         }
+// //                       >
+// //                         <div
+// //                           className={
+// //                             item.hoverCircle.circleClassName || "hover-circle"
+// //                           }
+// //                         >
+// //                           <div
+// //                             className={
+// //                               item.hoverCircle.outlineClassName ||
+// //                               "outline-hover-circle-2"
+// //                             }
+// //                           >
+// //                             <div
+// //                               className={
+// //                                 item.hoverCircle.iconClassName ||
+// //                                 "insragram-icon-2"
+// //                               }
+// //                             ></div>
+// //                           </div>
+// //                         </div>
+// //                       </div>
+// //                     )}
+
+// //                     {/* Image + Overlay */}
+// //                     <div className={item.lightboxClassName || "lightbox-photo"}>
+// //                       <div className={item.coverClassName || "image-cover"}>
+// //                         {item.overlay?.show && (
+// //                           <div
+// //                             className={item.overlay.className || "gall-overlay"}
+// //                           ></div>
+// //                         )}
+// //                       </div>
+// //                     </div>
+
+// //                     {/* Lightbox JSON */}
+// //                     <script
+// //                       type="application/json"
+// //                       className="w-json"
+// //                       dangerouslySetInnerHTML={{
+// //                         __html: JSON.stringify({
+// //                           items: item.image?.upload
+// //                             ? [
+// //                                 {
+// //                                   url: getImageUrl(item.image.upload),
+// //                                   type: "image",
+// //                                   width: item.image.width,
+// //                                   height: item.image.height,
+// //                                   fileName: item.image.origFileName,
+// //                                 },
+// //                               ]
+// //                             : item.image?.url
+// //                             ? [
+// //                                 {
+// //                                   url: item.image.url,
+// //                                   type: "image",
+// //                                   width: item.image.width || 1000,
+// //                                   height: item.image.height || 1000,
+// //                                 },
+// //                               ]
+// //                             : [],
+// //                           group: item.lightboxData?.group || "Carsy Gall",
+// //                         }),
+// //                       }}
+// //                     />
+// //                   </a>
+// //                 ))}
+// //               </div>
+// //             </div>
+// //           </div>
+// //         </div>
+// //       )}
+// //     </div>
+// //   );
+// // } 
+
+
+
+
+
 // "use client";
 
 // import { useState, useEffect } from "react";
@@ -303,7 +539,6 @@
 //     fetchGalleryPageComponentData().then((fetchedData) => {
 //       setData(fetchedData);
 
-//       // Re-initialize Webflow lightbox & interactions
 //       if (
 //         fetchedData &&
 //         typeof window !== "undefined" &&
@@ -329,82 +564,63 @@
 //     galleryItems = [],
 //   } = data;
 
+//   const getBannerBackground = () => {
+//     const img = innerBannerSection.bannerImage;
+//     if (!img) return "";
+
+//     const width = typeof window !== "undefined" ? window.innerWidth : 1920;
+//     if (width <= 420 && img.mobile) return getImageUrl(img.mobile);
+//     if (width <= 800 && img.tablet) return getImageUrl(img.tablet);
+//     if (width <= 1400 && img.desktop) return getImageUrl(img.desktop);
+//     return getImageUrl(img.large) || getImageUrl(img.desktop) || "";
+//   };
+
 //   return (
 //     <div className="relative-page-wrapper">
 //       {/* Inner Banner */}
 //       {innerBannerSection.show && (
-//         <div className={innerBannerSection.className || "inner-banner"}>
+//         <div className={innerBannerSection.className}>
 //           <div
 //             className={
 //               innerBannerSection.containerClassName || "base-container"
 //             }
 //           >
 //             <div
-//               data-w-id={
-//                 innerBannerSection.animationId ||
-//                 "6d36c7d5-e819-f15a-600c-248180f6e8d4"
-//               }
-//               className={
-//                 innerBannerSection.titleWrapperClassName || "inner-title-wrap"
-//               }
+//               data-w-id={innerBannerSection.animationId}
+//               className={innerBannerSection.titleWrapperClassName}
 //             >
-//               <h1
-//                 className={
-//                   innerBannerSection.titleClassName || "inner-banner-title"
-//                 }
-//               >
+//               <h1 className={innerBannerSection.titleClassName}>
 //                 {innerBannerSection.title}
 //               </h1>
 //             </div>
 //           </div>
 
-//           <div
-//             className={
-//               innerBannerSection.clipPhotoClassName || "inner-clip-photo-banner"
-//             }
-//           >
+//           <div className={innerBannerSection.clipPhotoClassName}>
 //             <div
 //               data-w-id="6d36c7d5-e819-f15a-600c-248180f6e8d8"
 //               style={{
+//                 backgroundImage: getBannerBackground()
+//                   ? `url("${getBannerBackground()}")`
+//                   : "none",
 //                 WebkitTransform: `translate3d(0, 0, 0) scale3d(${
-//                   innerBannerSection.bannerImage?.initialScale || "1.15"
+//                   innerBannerSection.bannerImage?.initialScale || 1.15
 //                 }, ${
-//                   innerBannerSection.bannerImage?.initialScale || "1.15"
+//                   innerBannerSection.bannerImage?.initialScale || 1.15
 //                 }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
 //                 transform: `translate3d(0, 0, 0) scale3d(${
-//                   innerBannerSection.bannerImage?.initialScale || "1.15"
+//                   innerBannerSection.bannerImage?.initialScale || 1.15
 //                 }, ${
-//                   innerBannerSection.bannerImage?.initialScale || "1.15"
+//                   innerBannerSection.bannerImage?.initialScale || 1.15
 //                 }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
 //               }}
-//               className={
-//                 innerBannerSection.bannerImage?.className ||
-//                 "inner-photo-banner our-gallery-banner"
-//               }
-//               style={{
-//                 backgroundImage: `url("${
-//                   getImageUrl(innerBannerSection.bannerImage?.desktop) ||
-//                   innerBannerSection.bannerImage?.mobile?.url ||
-//                   ""
-//                 }")`,
-//                 backgroundSize: "cover",
-//                 backgroundPosition: "center",
-//               }}
+//               className={innerBannerSection.bannerImage?.className}
 //             ></div>
 
 //             {innerBannerSection.overlay?.show && (
-//               <div
-//                 className={
-//                   innerBannerSection.overlay.className ||
-//                   "inner-banner-overlay our-clients-overlay"
-//                 }
-//               >
+//               <div className={innerBannerSection.overlay.className}>
 //                 {innerBannerSection.overlay.showGradient && (
 //                   <div
-//                     className={
-//                       innerBannerSection.overlay.gradientClassName ||
-//                       "red-inner-grad-1"
-//                     }
+//                     className={innerBannerSection.overlay.gradientClassName}
 //                   ></div>
 //                 )}
 //               </div>
@@ -413,107 +629,84 @@
 //         </div>
 //       )}
 
-//       {/* Gallery Grid */}
+//       {/* Gallery Grid - NOW USING <img> TAG FOR THUMBNAILS */}
 //       {galleryGridSection.show && (
-//         <div className={galleryGridSection.className || "section-gray"}>
-//           <div
-//             className={
-//               galleryGridSection.innerBackgroundClassName || "soft-black-bg"
-//             }
-//           >
+//         <div className={galleryGridSection.className}>
+//           <div className={galleryGridSection.innerBackgroundClassName}>
 //             <div
 //               className={
 //                 galleryGridSection.containerClassName || "base-container"
 //               }
 //             >
-//               <div
-//                 className={
-//                   galleryGridSection.gridClassName || "our-gallery-grid"
-//                 }
-//               >
-//                 {galleryItems.map((item: any) => (
-//                   <a
-//                     key={item.id}
-//                     href="#"
-//                     id={item.nodeId}
-//                     className={
-//                       item.className ||
-//                       "instagram-link w-inline-block w-lightbox"
-//                     }
-//                   >
-//                     {/* Hover Circle */}
-//                     {item.hoverCircle?.show && (
-//                       <div
-//                         className={
-//                           item.hoverCircle.wrapperClassName ||
-//                           "hover-circle-wrapper"
-//                         }
-//                       >
-//                         <div
-//                           className={
-//                             item.hoverCircle.circleClassName || "hover-circle"
-//                           }
-//                         >
-//                           <div
-//                             className={
-//                               item.hoverCircle.outlineClassName ||
-//                               "outline-hover-circle-2"
-//                             }
-//                           >
-//                             <div
-//                               className={
-//                                 item.hoverCircle.iconClassName ||
-//                                 "insragram-icon-2"
-//                               }
-//                             ></div>
+//               <div className={galleryGridSection.gridClassName}>
+//                 {galleryItems.map((item: any) => {
+//                   const imageUrl =
+//                     getImageUrl(item.image?.upload) || item.image?.url || "";
+//                   const hasImage = !!imageUrl;
+
+//                   return (
+//                     <a
+//                       key={item.id}
+//                       href="#"
+//                       id={item.nodeId}
+//                       className={item.className}
+//                     >
+//                       {/* Hover Circle */}
+//                       {item.hoverCircle?.show && (
+//                         <div className={item.hoverCircle.wrapperClassName}>
+//                           <div className={item.hoverCircle.circleClassName}>
+//                             <div className={item.hoverCircle.outlineClassName}>
+//                               <div
+//                                 className={item.hoverCircle.iconClassName}
+//                               ></div>
+//                             </div>
 //                           </div>
 //                         </div>
-//                       </div>
-//                     )}
+//                       )}
 
-//                     {/* Image + Overlay */}
-//                     <div className={item.lightboxClassName || "lightbox-photo"}>
-//                       <div className={item.coverClassName || "image-cover"}>
-//                         {item.overlay?.show && (
-//                           <div
-//                             className={item.overlay.className || "gall-overlay"}
-//                           ></div>
-//                         )}
-//                       </div>
-//                     </div>
+//                       {/* Thumbnail using real <img> tag */}
+//                       <div className={item.lightboxClassName}>
+//                         <div className={item.coverClassName}>
+//                           {/* Overlay */}
+//                           {item.overlay?.show && (
+//                             <div className={item.overlay.className}></div>
+//                           )}
 
-//                     {/* Lightbox JSON */}
-//                     <script
-//                       type="application/json"
-//                       className="w-json"
-//                       dangerouslySetInnerHTML={{
-//                         __html: JSON.stringify({
-//                           items: item.image?.upload
-//                             ? [
-//                                 {
-//                                   url: getImageUrl(item.image.upload),
-//                                   type: "image",
-//                                   width: item.image.width,
-//                                   height: item.image.height,
-//                                   fileName: item.image.origFileName,
-//                                 },
-//                               ]
-//                             : item.image?.url
-//                             ? [
-//                                 {
-//                                   url: item.image.url,
-//                                   type: "image",
-//                                   width: item.image.width || 1000,
-//                                   height: item.image.height || 1000,
-//                                 },
-//                               ]
-//                             : [],
-//                           group: item.lightboxData?.group || "Carsy Gall",
-//                         }),
-//                       }}
-//                     />
-//                   </a>
-//                 ))}
+//                           {/* Real image from Payload */}
+//                           {hasImage && (
+//                             <img
+//                               src={imageUrl}
+//                               alt={item.image?.alt || "Gallery image"}
+//                               loading="lazy"
+//                               className="gallery-thumbnail-img"
+//                             />
+//                           )}
+//                         </div>
+//                       </div>
+
+//                       {/* Lightbox JSON */}
+//                       <script
+//                         type="application/json"
+//                         className="w-json"
+//                         dangerouslySetInnerHTML={{
+//                           __html: JSON.stringify({
+//                             items: hasImage
+//                               ? [
+//                                   {
+//                                     url: imageUrl,
+//                                     type: "image",
+//                                     width: item.image?.width || 1000,
+//                                     height: item.image?.height || 1000,
+//                                   },
+//                                 ]
+//                               : [],
+//                             group: item.lightboxData?.group || "Carsy Gall",
+//                           }),
+//                         }}
+//                       />
+//                     </a>
+//                   );
+//                 })}
 //               </div>
 //             </div>
 //           </div>
@@ -521,16 +714,17 @@
 //       )}
 //     </div>
 //   );
-// } 
-
-
+// }
 
 
 
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchGalleryPageComponentData, getImageUrl } from "@/lib/fetchGalleryPageComponentData";
+import {
+  fetchGalleryPageComponentData,
+  getImageUrl,
+} from "@/lib/fetchGalleryPageComponentData";
 
 export default function GalleryPage() {
   const [data, setData] = useState<any>(null);
@@ -577,141 +771,134 @@ export default function GalleryPage() {
 
   return (
     <div className="relative-page-wrapper">
-      {/* Inner Banner */}
-      {innerBannerSection.show && (
-        <div className={innerBannerSection.className}>
+      <div className="inner-banner">
+        <div className="base-container">
           <div
-            className={
-              innerBannerSection.containerClassName || "base-container"
-            }
+            data-w-id="6d36c7d5-e819-f15a-600c-248180f6e8d4"
+            className="inner-title-wrap"
           >
-            <div
-              data-w-id={innerBannerSection.animationId}
-              className={innerBannerSection.titleWrapperClassName}
-            >
-              <h1 className={innerBannerSection.titleClassName}>
-                {innerBannerSection.title}
-              </h1>
-            </div>
+            <h1 className="inner-banner-title">
+              {innerBannerSection.title || "Our Gallery"}
+            </h1>
           </div>
-
-          <div className={innerBannerSection.clipPhotoClassName}>
-            <div
-              data-w-id="6d36c7d5-e819-f15a-600c-248180f6e8d8"
-              style={{
-                backgroundImage: getBannerBackground()
-                  ? `url("${getBannerBackground()}")`
-                  : "none",
-                WebkitTransform: `translate3d(0, 0, 0) scale3d(${
-                  innerBannerSection.bannerImage?.initialScale || 1.15
-                }, ${
-                  innerBannerSection.bannerImage?.initialScale || 1.15
-                }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
-                transform: `translate3d(0, 0, 0) scale3d(${
-                  innerBannerSection.bannerImage?.initialScale || 1.15
-                }, ${
-                  innerBannerSection.bannerImage?.initialScale || 1.15
-                }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
-              }}
-              className={innerBannerSection.bannerImage?.className}
-            ></div>
-
-            {innerBannerSection.overlay?.show && (
-              <div className={innerBannerSection.overlay.className}>
-                {innerBannerSection.overlay.showGradient && (
-                  <div
-                    className={innerBannerSection.overlay.gradientClassName}
-                  ></div>
-                )}
-              </div>
+        </div>
+        <div className="inner-clip-photo-banner">
+          <div
+            data-w-id="6d36c7d5-e819-f15a-600c-248180f6e8d8"
+            style={{
+              backgroundImage: getBannerBackground()
+                ? `url("${getBannerBackground()}")`
+                : "none",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              WebkitTransform: `translate3d(0, 0, 0) scale3d(${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, ${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
+              MozTransform: `translate3d(0, 0, 0) scale3d(${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, ${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
+              msTransform: `translate3d(0, 0, 0) scale3d(${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, ${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
+              transform: `translate3d(0, 0, 0) scale3d(${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, ${
+                innerBannerSection.bannerImage?.initialScale || 1.15
+              }, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)`,
+            }}
+            className="inner-photo-banner our-gallery-banner"
+          ></div>
+          <div className="inner-banner-overlay our-clients-overlay">
+            {innerBannerSection.overlay?.showGradient ? (
+              <div
+                className={
+                  innerBannerSection.overlay.gradientClassName ||
+                  "red-inner-grad-1"
+                }
+              ></div>
+            ) : (
+              <div className="red-inner-grad-1"></div>
             )}
           </div>
         </div>
-      )}
+      </div>
+      <div className="section-gray">
+        <div className="soft-black-bg">
+          <div className="base-container">
+            <div className="our-gallery-grid">
+              {galleryItems.map((item: any) => {
+                const imageUrl =
+                  getImageUrl(item.image?.upload) || item.image?.url || "";
+                const hasImage = !!imageUrl;
+                const width = item.image?.width || 1000;
+                const height = item.image?.height || 1000;
 
-      {/* Gallery Grid - NOW USING <img> TAG FOR THUMBNAILS */}
-      {galleryGridSection.show && (
-        <div className={galleryGridSection.className}>
-          <div className={galleryGridSection.innerBackgroundClassName}>
-            <div
-              className={
-                galleryGridSection.containerClassName || "base-container"
-              }
-            >
-              <div className={galleryGridSection.gridClassName}>
-                {galleryItems.map((item: any) => {
-                  const imageUrl =
-                    getImageUrl(item.image?.upload) || item.image?.url || "";
-                  const hasImage = !!imageUrl;
-
-                  return (
-                    <a
-                      key={item.id}
-                      href="#"
-                      id={item.nodeId}
-                      className={item.className}
-                    >
-                      {/* Hover Circle */}
-                      {item.hoverCircle?.show && (
-                        <div className={item.hoverCircle.wrapperClassName}>
-                          <div className={item.hoverCircle.circleClassName}>
-                            <div className={item.hoverCircle.outlineClassName}>
-                              <div
-                                className={item.hoverCircle.iconClassName}
-                              ></div>
-                            </div>
+                return (
+                  <a
+                    key={item.id}
+                    href="#"
+                    id={item.nodeId}
+                    className="instagram-link w-inline-block w-lightbox"
+                  >
+                    {item.hoverCircle?.show && (
+                      <div className="hover-circle-wrapper">
+                        <div className="hover-circle">
+                          <div className="outline-hover-circle-2">
+                            <div className="insragram-icon-2"></div>
                           </div>
                         </div>
-                      )}
-
-                      {/* Thumbnail using real <img> tag */}
-                      <div className={item.lightboxClassName}>
-                        <div className={item.coverClassName}>
-                          {/* Overlay */}
-                          {item.overlay?.show && (
-                            <div className={item.overlay.className}></div>
-                          )}
-
-                          {/* Real image from Payload */}
-                          {hasImage && (
-                            <img
-                              src={imageUrl}
-                              alt={item.image?.alt || "Gallery image"}
-                              loading="lazy"
-                              className="gallery-thumbnail-img"
-                            />
-                          )}
-                        </div>
                       </div>
-
-                      {/* Lightbox JSON */}
-                      <script
-                        type="application/json"
-                        className="w-json"
-                        dangerouslySetInnerHTML={{
-                          __html: JSON.stringify({
-                            items: hasImage
-                              ? [
-                                  {
-                                    url: imageUrl,
-                                    type: "image",
-                                    width: item.image?.width || 1000,
-                                    height: item.image?.height || 1000,
-                                  },
-                                ]
-                              : [],
-                            group: item.lightboxData?.group || "Carsy Gall",
-                          }),
+                    )}
+                    <div className="lightbox-photo">
+                      <div
+                        className={item.coverClassName || "image-cover"}
+                        style={{
+                          backgroundImage: hasImage
+                            ? `url(${imageUrl})`
+                            : "none",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
                         }}
-                      />
-                    </a>
-                  );
-                })}
-              </div>
+                      >
+                        {item.overlay?.show && (
+                          <div className="gall-overlay"></div>
+                        )}
+                      </div>
+                    </div>
+                    <script
+                      type="application/json"
+                      className="w-json"
+                      dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                          items: hasImage
+                            ? [
+                                {
+                                  url: imageUrl,
+                                  type: "image",
+                                  width,
+                                  height,
+                                },
+                              ]
+                            : [],
+                          group: item.lightboxData?.group || "Carsy Gall",
+                        }),
+                      }}
+                    />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

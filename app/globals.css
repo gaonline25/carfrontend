@@ -22411,3 +22411,36 @@ body {
 .news-cover-publication-2 {
   background-color: #92793D !important;
 }
+
+.overlay-dark {
+  background-image: linear-gradient(225deg, #92793D 3%, #00000008 27% 74%, #92793D 91%, #92793D) !important;
+}
+
+.cta-overlay {
+  background-image: linear-gradient(315deg, #00000096 4%, #0000000d 39% 75%, #92793D) !important;
+}
+
+.faq-hero-title-dark {
+  color: #fff !important;
+}
+
+.gall-overlay {
+  background-image: linear-gradient(225deg, #92793D 1%, #0000000d 33%, #0000008c 94%) !important;
+}
+
+.news-overlay {
+  background-image: linear-gradient(225deg, #92793D, #00000008 28%, var(--transparent) 67%, #92793D) !important;
+}
+
+.news-detail-overlay {
+  background-image: linear-gradient(315deg, #0000008c 1%, #0000000d 71%, #92793D 97%) !important;
+}
+
+.scroll-blog-link {
+  background-color: #92793D !important;
+}
+
+blockquote {
+  background-color: #92793D !important;
+  border-color: #92793D !important;
+}

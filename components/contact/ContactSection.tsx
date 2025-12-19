@@ -523,6 +523,7 @@
 
 import React, { useState } from "react";
 import { getImageUrl } from "@/lib/fetchContactSectionPageData"; // Adjust path to your API utilities
+import { isValidEmail, isValidPhone, sanitizeInput, submitForm } from "@/lib/formSubmissions";
 
 interface ContactSectionPageData {
   contactFormSection: {
@@ -721,11 +722,28 @@ interface ContactSectionPageData {
 }
 
 interface ContactSectionProps {
-  data?: ContactSectionPageData; // Made optional
+  data?: ContactSectionPageData;
 }
 
 const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
-  // Guard clause: Handle missing data
+  // Form state
+  const [formData, setFormData] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  // FAQ state
+  const [expanded, setExpanded] = useState(
+    new Set(
+      data?.faqSection?.faqItems
+        ?.map((item: any, i: number) => (item.isExpanded ? i : -1))
+        .filter((i: number) => i >= 0) || []
+    )
+  );
+
   if (!data) {
     return (
       <main id="main">
@@ -745,14 +763,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     formStyling,
   } = data;
 
-  const [expanded, setExpanded] = useState(
-    new Set(
-      faqSection.faqItems
-        .map((item, i) => (item.isExpanded ? i : -1))
-        .filter((i) => i >= 0)
-    )
-  );
-
   const toggleFaq = (index: number) => {
     setExpanded((prev) => {
       const newSet = new Set(prev);
@@ -765,24 +775,127 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     });
   };
 
-  const renderFormField = (field: any) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear field error when user starts typing
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const validateForm = (fields: any[]): boolean => {
+    const errors: Record<string, string> = {};
+
+    fields.forEach((field) => {
+      const value = formData[field.fieldName] || "";
+
+      if (field.required && !value.trim()) {
+        errors[field.fieldName] = `${
+          field.placeholder || field.fieldName
+        } is required`;
+      } else if (field.fieldType === "email" && value && !isValidEmail(value)) {
+        errors[field.fieldName] = "Please enter a valid email address";
+      } else if (field.fieldType === "tel" && value && !isValidPhone(value)) {
+        errors[field.fieldName] = "Please enter a valid phone number";
+      }
+    });
+
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent any parent form handlers
+
+    const { formFields } = contactFormSection;
+
+    // Validate form
+    if (!validateForm(formFields)) {
+      setSubmitStatus("error");
+      setErrorMessage("Please fix the errors in the form");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      // Prepare submission data
+      const submissionData = {
+        formType: "contact" as const,
+        name: sanitizeInput(formData.name || ""),
+        email: sanitizeInput(formData.email || ""),
+        phone: sanitizeInput(formData.phone || ""),
+        message: sanitizeInput(formData.message || ""),
+        subject: sanitizeInput(formData.subject || ""),
+        additionalFields: Object.keys(formData).reduce((acc, key) => {
+          if (!["name", "email", "phone", "message", "subject"].includes(key)) {
+            acc[key] = sanitizeInput(formData[key]);
+          }
+          return acc;
+        }, {} as Record<string, string>),
+      };
+
+      const result = await submitForm(submissionData);
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setFormData({}); // Clear form
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus("idle");
+        }, 5000);
+      } else {
+        setSubmitStatus("error");
+        setErrorMessage(
+          result.message || "Something went wrong. Please try again."
+        );
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+      setErrorMessage("An unexpected error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const renderFormField = (field: any, index: number) => {
+    const value = formData[field.fieldName] || "";
+    const hasError = !!fieldErrors[field.fieldName];
+    // Use fieldName + index to ensure unique keys
+    const uniqueKey = `${field.fieldName}-${index}`;
+
     const commonProps = {
       maxLength: field.maxLength || 256,
       name: field.fieldName,
       "data-name": field.dataName || field.fieldName,
       placeholder: field.placeholder || "",
-      id: field.fieldId,
+      id: `${field.fieldName}-field-${index}`, // Make ID unique
       required: field.required,
-      className:
+      value: value,
+      onChange: handleInputChange,
+      className: `${
         field.className ||
         (field.fieldType === "textarea"
           ? "form-textarea w-input"
-          : "form-input w-input"),
+          : "form-input w-input")
+      } ${hasError ? "error" : ""}`,
       style: {
         backgroundColor: formStyling.inputBackgroundColor,
         color: formStyling.inputTextColor,
         border: `${formStyling.inputBorderWidth || "1px"} solid ${
-          formStyling.inputBorderColor || "transparent"
+          hasError ? "#ff0000" : formStyling.inputBorderColor || "transparent"
         }`,
         borderRadius: formStyling.inputBorderRadius,
         padding: formStyling.inputPadding,
@@ -790,7 +903,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     };
 
     const wrapper = (
-      <div className={field.wrapperClassName || "form-input-wrapper"}>
+      <div
+        key={uniqueKey}
+        className={field.wrapperClassName || "form-input-wrapper"}
+      >
         {field.fieldType === "textarea" ? (
           <textarea
             {...commonProps}
@@ -801,6 +917,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
           />
         ) : (
           <input type={field.fieldType} {...commonProps} />
+        )}
+        {hasError && (
+          <div style={{ color: "#ff0000", fontSize: "12px", marginTop: "4px" }}>
+            {fieldErrors[field.fieldName]}
+          </div>
         )}
       </div>
     );
@@ -815,15 +936,17 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     return (
       <>
         {Array.from({ length: Math.ceil(gridFields.length / 2) }, (_, i) => (
-          <div key={`grid-${i}`} className="grid-contact-input">
+          <div key={`grid-row-${i}`} className="grid-contact-input">
             {gridFields
               .slice(i * 2, (i + 1) * 2)
-              .map((field) => renderFormField(field))}
+              .map((field, fieldIndex) =>
+                renderFormField(field, i * 2 + fieldIndex)
+              )}
           </div>
         ))}
-        {fullFields.map((field) => (
-          <div key={field.fieldId} className="contact-form-inputs">
-            {renderFormField(field)}
+        {fullFields.map((field, index) => (
+          <div key={`full-row-${index}`} className="contact-form-inputs">
+            {renderFormField(field, gridFields.length + index)}
           </div>
         ))}
       </>
@@ -832,6 +955,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
 
   const renderFaqItem = (item: any, index: number, isOpen: boolean) => (
     <div
+      key={`faq-item-${index}`}
       data-delay="0"
       data-hover="false"
       className={`${item.dropdownClassName || "faq-dropdown-down w-dropdown"} ${
@@ -886,6 +1010,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
           dividerLines,
           videoBackground,
         } = contactFormSection;
+
         const leftBgUrl = getImageUrl(leftColumn.backgroundImage);
         const posterUrl =
           videoBackground.posterUrl ||
@@ -896,8 +1021,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
         const webmUrl =
           videoBackground.videoWebmUrl ||
           getImageUrl(videoBackground.videoUploadWebm);
+
         return (
           <section
+            key="contact-form-section"
             className={contactFormSection.className || "contact-us-section"}
             style={{ backgroundColor: contactFormSection.backgroundColor }}
           >
@@ -1010,13 +1137,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                               id={formConfiguration.formId}
                               name={formConfiguration.formName}
                               data-name={formConfiguration.formName}
-                              method={formConfiguration.formMethod}
                               className={
                                 formConfiguration.formClassName ||
                                 "contacts-form"
                               }
+                              onSubmit={handleSubmit}
                               data-wf-page-id="669e1212d181ce4bfbbea1d4"
                               data-wf-element-id="78c3fced-68de-f04d-8282-61f416ab32df"
+                              action="#" // Prevent Webflow form submission
                             >
                               {renderFormFields(formFields)}
                               <div
@@ -1024,7 +1152,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                                   submitButton.wrapperClassName ||
                                   "form-hero-btn"
                                 }
-                                style={{ pointerEvents: "none" }}
                               >
                                 <input
                                   type="submit"
@@ -1033,16 +1160,31 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                                     submitButton.className ||
                                     "primary-button-form w-button"
                                   }
-                                  value={submitButton.text}
+                                  value={
+                                    isSubmitting
+                                      ? submitButton.waitText
+                                      : submitButton.text
+                                  }
+                                  disabled={isSubmitting}
                                   style={{
                                     backgroundColor:
                                       submitButton.backgroundColor,
                                     color: submitButton.textColor,
+                                    opacity: isSubmitting ? 0.7 : 1,
+                                    cursor: isSubmitting
+                                      ? "not-allowed"
+                                      : "pointer",
                                   }}
                                 />
                               </div>
                             </form>
-                            <div className="succes-message-transparent w-form-done">
+                            <div
+                              className="succes-message-transparent w-form-done"
+                              style={{
+                                display:
+                                  submitStatus === "success" ? "block" : "none",
+                              }}
+                            >
                               <div className="success-circle-wrapper">
                                 <div className="success-text">
                                   <span className="thank-you-text">
@@ -1052,12 +1194,19 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                                 </div>
                               </div>
                             </div>
-                            <div className="error-project-message w-form-fail">
+                            <div
+                              className="error-project-message w-form-fail"
+                              style={{
+                                display:
+                                  submitStatus === "error" ? "block" : "none",
+                              }}
+                            >
                               <div className="error-text">
                                 <span className="error-span">
                                   {formConfiguration.errorMessage}
                                 </span>
-                                {formConfiguration.errorMessageBody}
+                                {errorMessage ||
+                                  formConfiguration.errorMessageBody}
                               </div>
                             </div>
                           </div>
@@ -1211,8 +1360,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
         const half = Math.ceil(faqItems.length / 2);
         const leftItems = faqItems.slice(0, half);
         const rightItems = faqItems.slice(half);
+
         return (
           <div
+            key="faq-section-wrapper"
             className={faqSection.wrapperClassName || "relative-page-wrapper"}
           >
             <section
@@ -1287,7 +1438,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                     data-w-id="87bb22ab-e18b-4f40-c705-713a25c450cb"
                     className={faqGridLayout.itemClassName || "faq-grid-item"}
                   >
-                    {leftItems.map((item, idx) =>
+                    {leftItems.map((item: any, idx: number) =>
                       renderFaqItem(item, idx, expanded.has(idx))
                     )}
                   </div>
@@ -1295,7 +1446,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                     data-w-id="87bb22ab-e18b-4f40-c705-713a25c4513c"
                     className={faqGridLayout.itemClassName || "faq-grid-item"}
                   >
-                    {rightItems.map((item, idx) =>
+                    {rightItems.map((item: any, idx: number) =>
                       renderFaqItem(item, half + idx, expanded.has(half + idx))
                     )}
                   </div>
@@ -1350,7 +1501,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
       }}
     >
       {sectionOrder.map((item, index) => (
-        <React.Fragment key={index}>
+        <React.Fragment key={`section-${index}`}>
           {renderSection(item.section)}
         </React.Fragment>
       ))}
