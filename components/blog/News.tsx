@@ -673,60 +673,7 @@ export default function BlogListing() {
   if (loading) {
     return (
       <div className="relative-page-wrapper">
-        <div
-          className={
-            bannerData?.containerSettings?.outerClassName ||
-            "inner-small-banner"
-          }
-        >
-          <div
-            className={
-              bannerData?.containerSettings?.baseContainerClassName ||
-              "base-container"
-            }
-          >
-            <div
-              className={
-                bannerData?.titleSection?.className || "inner-title-wrap"
-              }
-            >
-              <h1
-                className={
-                  bannerData?.titleSection?.titleClassName ||
-                  "inner-banner-title"
-                }
-              >
-                {bannerData?.title || "Our Blogs"}
-              </h1>
-            </div>
-          </div>
-          <div
-            className={
-              bannerData?.backgroundSection?.clipPhotoClassName ||
-              "inner-clip-photo-banner"
-            }
-          >
-            <div
-              className={
-                bannerData?.backgroundSection?.bannerClassName ||
-                "inner-photo-banner news-banner"
-              }
-            ></div>
-            <div
-              className={
-                bannerData?.overlaySection?.overlayClassName ||
-                "inner-banner-overlay with-bottom-light-gradient"
-              }
-            >
-              <div
-                className={
-                  bannerData?.overlaySection?.gradientClassName ||
-                  "red-inner-grad-1"
-                }
-              ></div>
-            </div>
-          </div>
-        </div>
+        
         <div className="section-news">
           <div className="base-container">
             <div className="text-center py-20">Loading blog posts...</div>
