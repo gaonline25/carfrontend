@@ -32,6 +32,41 @@ export async function fetchAllBlogPosts(limit = 100) {
   }
 }
 
+export async function fetchBlogListingBanner() {
+  const url = `${API_URL}/api/blog-listing-banner?where[isActive][equals]=true&limit=1&depth=10`;
+
+  console.log("=== FETCHING BLOG LISTING BANNER ===");
+  console.log("URL:", url);
+
+  try {
+    const res = await fetch(url, {
+      next: { revalidate: 60 },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!res.ok) {
+      console.error("Fetch failed:", res.status, res.statusText);
+      return null;
+    }
+
+    const json = await res.json();
+    const docs = json.docs || [];
+
+    if (docs.length === 0) {
+      console.warn("No active blog listing banner found");
+      return null;
+    }
+
+    console.log("Banner fetched successfully");
+    return docs[0];
+  } catch (error) {
+    console.error("Exception during fetch:", error);
+    return null;
+  }
+}
+
 // Fetch single blog post by slug
 export async function fetchBlogPostBySlug(slug: string) {
   const url = `${API_URL}/api/blog-post-component?where[slug][equals]=${slug}&depth=10`;
