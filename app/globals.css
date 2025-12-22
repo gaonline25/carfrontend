@@ -5128,7 +5128,7 @@ figure {
 
 .logo-project {
   width: auto;
-  height: 20px;
+  height: 50px !important;
 }
 
 .hero-nav-con {
@@ -22191,7 +22191,7 @@ body {
 }
 
 .red-grad-1, .red-grad-12, .red-grad-10, .red-grad-11, .red-grad-2, .red-grad-3, .red-grad-6, .red-grad-5, .red-grad-9, .red-grad-7 {
-  background-color: #92793D !important;
+  background-color: transparent !important;
 }
 
 .color-section-wrapper {
@@ -22368,7 +22368,7 @@ body {
 }
 
 .red-grad-4 {
-  background-color: #92793D !important;
+  background-color: transparent !important;
 }
 
 .services-hero-title.hover-color {
@@ -22401,7 +22401,7 @@ body {
 }
 
 .red-inner-grad-1 {
-  background-color: #92793D !important;
+  background-color: transparent !important;
 }
 
 .news-card-top-2 {
@@ -22414,10 +22414,12 @@ body {
 
 .overlay-dark {
   background-image: linear-gradient(225deg, #92793D 3%, #00000008 27% 74%, #92793D 91%, #92793D) !important;
+  background-image: var(--transparent) !important;
 }
 
 .cta-overlay {
   background-image: linear-gradient(315deg, #00000096 4%, #0000000d 39% 75%, #92793D) !important;
+  background-image: var(--transparent) !important;
 }
 
 .faq-hero-title-dark {
@@ -22443,4 +22445,27 @@ body {
 blockquote {
   background-color: #92793D !important;
   border-color: #92793D !important;
+}
+
+.video-overlay {
+  background-image: var(--transparent) !important;
+}
+
+.overlay-services-slider {
+  background-image: var(--transparent) !important;
+}
+
+.gall-overlay {
+  background-image: var(--transparent) !important;
+}
+
+.news-overlay {
+  background-image: var(--transparent) !important;
+}
+.news-detail-overlay {
+  background-image: var(--transparent) !important;
+}
+
+.primary-button:hover {
+  box-shadow: 0 0 40px #92793D !important;
 }

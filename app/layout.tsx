@@ -53,15 +53,9 @@ export default async function RootLayout({
       <head>
         {/* Basic Meta */}
         <meta charSet="utf-8" />
-        <title>Car website</title>
-        <meta
-          property="og:title"
-          content="Car website"
-        />
-        <meta
-          property="twitter:title"
-          content="Car website"
-        />
+        <title>Pro masters</title>
+        <meta property="og:title" content="Pro masters" />
+        <meta property="twitter:title" content="Pro masters" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content="Webflow" />
 
@@ -82,11 +76,11 @@ export default async function RootLayout({
         {/* Favicon */}
         <link
           rel="shortcut icon"
-          href="https://cdn.prod.website-files.com/669e1212d181ce4bfbbea175/669fd55feefabc97ff3dcc11_Favicon.png"
+          href="https://i.postimg.cc/d1Cncm1F/Whats-App-Image-2025-12-22-at-11-52-28-PM.jpg"
         />
         <link
           rel="apple-touch-icon"
-          href="https://cdn.prod.website-files.com/669e1212d181ce4bfbbea175/669fd563cdebbdf5ce6fcf1f_Webclip.png"
+          href="https://i.postimg.cc/d1Cncm1F/Whats-App-Image-2025-12-22-at-11-52-28-PM.jpg"
         />
 
         {/* Currency Settings */}
