@@ -5128,7 +5128,8 @@ figure {
 
 .logo-project {
   width: auto;
-  height: 50px !important;
+  height: 40px !important;
+  margin-top: -14px !important;
 }
 
 .hero-nav-con {

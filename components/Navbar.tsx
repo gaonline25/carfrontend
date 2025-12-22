@@ -20,7 +20,7 @@ function Navigation() {
                 width="120"
                 height="30"
                 alt="Logo"
-                src="https://i.postimg.cc/d1Cncm1F/Whats-App-Image-2025-12-22-at-11-52-28-PM.jpg"
+                src="https://i.postimg.cc/Qx68vvyG/Whats-App-Image-2025-12-23-at-12-11-10-AM.jpg"
                 className="logo-project"
               />
             </a>
