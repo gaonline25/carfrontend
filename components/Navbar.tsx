@@ -33,7 +33,7 @@ function Navigation() {
                     loading="lazy"
                     height="24"
                     alt="Project photo"
-                    src="https://cdn.prod.website-files.com/669e1212d181ce4bfbbea175/669fc303d1ff53289519ac5d_Logo%20White.svg"
+                    src="https://i.postimg.cc/Qx68vvyG/Whats-App-Image-2025-12-23-at-12-11-10-AM.jpg"
                     className="logo-project"
                   />
                 </a>
