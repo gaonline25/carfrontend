@@ -73,35 +73,10 @@ function Navigation() {
                             </div>
                           </div>
                         </div>
-                        {/* <div className="icon-wrap">
-                          <div className="nav-cross-wrap">
-                            <div className="cross-hor-line"></div>
-                            <div className="cross-vert-line"></div>
-                          </div>
-                          <div className="nav-dropdown-small-icon w-icon-dropdown-toggle"></div>
-                        </div> */}
+                        
                         <div className="hover-nav-cover"></div>
                       </div>
-                      {/* <nav className="nav-dropdown-list-item-2 w-dropdown-list">
-                        <div className="nav-dropdown-link-wrapper-3">
-                          <a href="/home-1" className="full-width-nav-link">
-                            <span className="nav-dropdown-link-span"></span>
-                            Home 1
-                          </a>
-                          <a
-                            href="/home-2"
-                            aria-current="page"
-                            className="full-width-nav-link w--current"
-                          >
-                            <span className="nav-dropdown-link-span"></span>
-                            Home 2
-                          </a>
-                          <a href="/home-3" className="full-width-nav-link">
-                            <span className="nav-dropdown-link-span"></span>
-                            Home 3
-                          </a>
-                        </div>
-                      </nav> */}
+                      
                     </div>
                     <div
                       data-delay="0"
@@ -126,29 +101,10 @@ function Navigation() {
                             </div>
                           </div>
                         </div>
-                        {/* <div className="icon-wrap">
-                          <div className="nav-dropdown-small-icon w-icon-dropdown-toggle"></div>
-                          <div className="nav-cross-wrap">
-                            <div className="cross-hor-line"></div>
-                            <div className="cross-vert-line"></div>
-                          </div>
-                        </div> */}
+                        
                         <div className="hover-nav-cover"></div>
                       </div>
-                      {/* <nav className="nav-dropdown-list-item-2 w-dropdown-list">
-                        <div className="nav-dropdown-link-wrapper-3">
-                          <a href="/services" className="full-width-nav-link">
-                            <span className="nav-dropdown-link-span"></span>
-                            Services
-                          </a>
-
-                          <a href="/gallery" className="full-width-nav-link">
-                            <span className="nav-dropdown-link-span"></span>
-                            Gallery
-                          </a>
-                          
-                        </div>
-                      </nav> */}
+                      
                     </div>
                     <div
                       data-delay="0"
@@ -173,13 +129,7 @@ function Navigation() {
                             </div>
                           </div>
                         </div>
-                        {/* <div className="icon-wrap">
-                          <div className="nav-dropdown-small-icon w-icon-dropdown-toggle"></div>
-                          <div className="nav-cross-wrap">
-                            <div className="cross-hor-line"></div>
-                            <div className="cross-vert-line"></div>
-                          </div>
-                        </div> */}
+                        
                         <div className="hover-nav-cover"></div>
                       </div>
                     </div>
@@ -206,13 +156,7 @@ function Navigation() {
                             </div>
                           </div>
                         </div>
-                        {/* <div className="icon-wrap">
-                          <div className="nav-dropdown-small-icon w-icon-dropdown-toggle"></div>
-                          <div className="nav-cross-wrap">
-                            <div className="cross-hor-line"></div>
-                            <div className="cross-vert-line"></div>
-                          </div>
-                        </div> */}
+                        
                         <div className="hover-nav-cover"></div>
                       </div>
                     </div>
@@ -239,289 +183,11 @@ function Navigation() {
                             </div>
                           </div>
                         </div>
-                        {/* <div className="icon-wrap">
-                          <div className="nav-dropdown-small-icon w-icon-dropdown-toggle"></div>
-                          <div className="nav-cross-wrap">
-                            <div className="cross-hor-line"></div>
-                            <div className="cross-vert-line"></div>
-                          </div>
-                        </div> */}
+                        
                         <div className="hover-nav-cover"></div>
                       </div>
                     </div>
-                    {/* <a href="/shop" className="header-link-item w-inline-block">
-                      <div className="nav-text-wrap">
-                        <div className="hero-nav-con">
-                          <div className="nav-clip">
-                            <p className="nav-intro-item">Shop</p>
-                          </div>
-                          <div className="nav-clip bottom">
-                            <p className="nav-intro-item hover-item">Shop</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="hover-nav-cover"></div>
-                    </a> */}
-                    {/* <a
-                      href="/career"
-                      className="header-link-item w-inline-block"
-                    >
-                      <div className="nav-text-wrap">
-                        <div className="hero-nav-con">
-                          <div className="nav-clip">
-                            <p className="nav-intro-item">Career</p>
-                          </div>
-                          <div className="nav-clip bottom">
-                            <p className="nav-intro-item hover-item">Career</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="hover-nav-cover"></div>
-                    </a> */}
-                    {/* <div
-                      data-delay="0"
-                      data-hover="true"
-                      data-w-id="a86f8d6c-670c-9667-9108-23bcd86f398b"
-                      className="hero-nav-dropdown w-dropdown"
-                    >
-                      <div className="dropdown-header-item-2 w-dropdown-toggle">
-                        <div className="nav-text-wrap">
-                          <div className="hero-nav-con">
-                            <div className="nav-clip">
-                              <p className="nav-intro-item">All Pages</p>
-                            </div>
-                            <div className="nav-clip bottom">
-                              <p className="nav-intro-item hover-item">
-                                All Pages
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="icon-wrap">
-                          <div className="nav-dropdown-small-icon w-icon-dropdown-toggle"></div>
-                          <div className="nav-cross-wrap">
-                            <div className="cross-hor-line"></div>
-                            <div className="cross-vert-line"></div>
-                          </div>
-                        </div>
-                        <div className="hover-nav-cover"></div>
-                      </div>
-                      <nav className="nav-dropdown-list-item-2 megamenu w-dropdown-list">
-                        <div className="megamenu-dropdown-wrapper-3">
-                          <div className="megamenu-dropdown-wrap-2">
-                            <div className="nav-dropdown-link-wrapper-3">
-                              <a href="/home-1" className="full-width-nav-link">
-                                <span className="nav-dropdown-link-span"></span>
-                                Home 1
-                              </a>
-                              <a
-                                href="/home-2"
-                                aria-current="page"
-                                className="full-width-nav-link w--current"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Home 2
-                              </a>
-                              <a href="/home-3" className="full-width-nav-link">
-                                <span className="nav-dropdown-link-span"></span>
-                                Home 3
-                              </a>
-                              <a
-                                href="/about-us"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                About Us
-                              </a>
-                              <a
-                                href="/services"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Services
-                              </a>
-                              <div className="header-collection-list w-dyn-list">
-                                <div
-                                  role="list"
-                                  className="header-list-wrap w-dyn-items"
-                                >
-                                  <div
-                                    role="listitem"
-                                    className="header-coll-item w-dyn-item"
-                                  >
-                                    <a
-                                      href="/services/brake-repair"
-                                      className="full-width-nav-link"
-                                    >
-                                      <span className="nav-dropdown-link-span"></span>
-                                      Service Details
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <a
-                                href="/our-team"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Our Team
-                              </a>
-                              <a
-                                href="/gallery"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Gallery
-                              </a>
-                            </div>
-                          </div>
-                          <div className="megamenu-dropdown-wrap-2">
-                            <div className="nav-dropdown-link-wrapper-3">
-                              <a
-                                href="/our-clients"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Our Clients
-                              </a>
-                              <a
-                                href="/pricing"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Pricing
-                              </a>
-                              <a href="/career" className="full-width-nav-link">
-                                <span className="nav-dropdown-link-span"></span>
-                                Career
-                              </a>
-                              <div className="header-collection-list w-dyn-list">
-                                <div
-                                  role="list"
-                                  className="header-list-wrap w-dyn-items"
-                                >
-                                  <div
-                                    role="listitem"
-                                    className="header-coll-item w-dyn-item"
-                                  >
-                                    <a
-                                      href="/job-positions/service-advisor"
-                                      className="full-width-nav-link"
-                                    >
-                                      <span className="nav-dropdown-link-span"></span>
-                                      Job Details
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <a
-                                href="/testimonials"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Testimonials
-                              </a>
-                              <a href="/faq" className="full-width-nav-link">
-                                <span className="nav-dropdown-link-span"></span>
-                                FAQ
-                              </a>
-                              <a
-                                href="/locations"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Locations
-                              </a>
-                              <a
-                                href="/contact-us"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Contact Us
-                              </a>
-                            </div>
-                          </div>
-                          <div className="megamenu-dropdown-wrap-2">
-                            <div className="nav-dropdown-link-wrapper-3">
-                              <a href="/blog" className="full-width-nav-link">
-                                <span className="nav-dropdown-link-span"></span>
-                                Blog
-                              </a>
-                              <div className="header-collection-list w-dyn-list">
-                                <div
-                                  role="list"
-                                  className="header-list-wrap w-dyn-items"
-                                >
-                                  <div
-                                    role="listitem"
-                                    className="header-coll-item w-dyn-item"
-                                  >
-                                    <a
-                                      href="/blog-posts/benefits-of-regular-oil-changes-why-its-essential"
-                                      className="full-width-nav-link"
-                                    >
-                                      <span className="nav-dropdown-link-span"></span>
-                                      Blog Details
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <a href="/shop" className="full-width-nav-link">
-                                <span className="nav-dropdown-link-span"></span>
-                                Shop
-                              </a>
-                              <div className="header-collection-list w-dyn-list">
-                                <div
-                                  role="list"
-                                  className="header-list-wrap w-dyn-items"
-                                >
-                                  <div
-                                    role="listitem"
-                                    className="header-coll-item w-dyn-item"
-                                  >
-                                    <a
-                                      href="/product/brake-pads"
-                                      className="full-width-nav-link"
-                                    >
-                                      <span className="nav-dropdown-link-span"></span>
-                                      SHOP DETAILS
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <a
-                                href="/templates/style-guide"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Style Guide
-                              </a>
-                              <a
-                                href="https://carsy-wcopilot.webflow.io/404"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                404
-                              </a>
-                              <a
-                                href="https://carsy-wcopilot.webflow.io/coming-soon"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Coming Soon
-                              </a>
-                              <a
-                                href="/templates/changelog"
-                                className="full-width-nav-link"
-                              >
-                                <span className="nav-dropdown-link-span"></span>
-                                Changelog
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </nav>
-                    </div> */}
+                    
                     <div className="nav-tablet-btn">
                       <a href="/contact" className="primary-button w-button">
                         Contact Us

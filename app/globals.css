@@ -22494,3 +22494,36 @@ blockquote {
     max-width: 100% !important;
   }
 }
+
+
+/* Disable all nav hover animations */
+.hero-nav-dropdown:hover .hover-nav-cover {
+  opacity: 0 !important;
+  transform: none !important;
+}
+
+.hero-nav-dropdown .hover-nav-cover {
+  display: none !important;
+}
+
+/* Kill text swap animation */
+.hero-nav-dropdown .nav-clip.bottom {
+  display: none !important;
+}
+
+/* Prevent any transform / transition */
+.hero-nav-dropdown *,
+.hero-nav-dropdown *::before,
+.hero-nav-dropdown *::after {
+  transition: none !important;
+  transform: none !important;
+}
+
+
+.nav-bg-cover, .w-nav-overlay {
+  background-color: #17172b !important;
+}
+
+.nav-menu-shadow-overlay-5 {
+  box-shadow: 5px 0 50px #17172b !important;
+}
