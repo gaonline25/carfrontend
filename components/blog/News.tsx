@@ -823,7 +823,7 @@ export default function BlogListing() {
                             </div>
                           </div>
                           <a
-                            href={`/blog-posts/${post.slug}`}
+                            href={`/blog/${post.slug}`}
                             className="project-3-card-bottom w-inline-block"
                           >
                             <div className="news-content">
