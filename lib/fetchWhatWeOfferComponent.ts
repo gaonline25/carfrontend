@@ -21,7 +21,7 @@ const API_URL =
       }
 
       const data = await res.json();
-      console.log("Fetched What We Offer Component:", data.docs?.[0]); // Debug log
+      // console.log("Fetched What We Offer Component:", data.docs?.[0]); // Debug log
       return data.docs?.[0] || null;
     } catch (error) {
       console.error("Error fetching What We Offer Component:", error);

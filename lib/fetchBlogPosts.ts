@@ -35,8 +35,8 @@ export async function fetchAllBlogPosts(limit = 100) {
 export async function fetchBlogListingBanner() {
   const url = `${API_URL}/api/blog-listing-banner?where[isActive][equals]=true&limit=1&depth=10`;
 
-  console.log("=== FETCHING BLOG LISTING BANNER ===");
-  console.log("URL:", url);
+  // console.log("=== FETCHING BLOG LISTING BANNER ===");
+  // console.log("URL:", url);
 
   try {
     const res = await fetch(url, {
@@ -59,7 +59,7 @@ export async function fetchBlogListingBanner() {
       return null;
     }
 
-    console.log("Banner fetched successfully");
+    // console.log("Banner fetched successfully");
     return docs[0];
   } catch (error) {
     console.error("Exception during fetch:", error);
@@ -71,9 +71,9 @@ export async function fetchBlogListingBanner() {
 export async function fetchBlogPostBySlug(slug: string) {
   const url = `${API_URL}/api/blog-post-component?where[slug][equals]=${slug}&depth=10`;
 
-  console.log("=== FETCHING BLOG POST BY SLUG ===");
-  console.log("Slug:", slug);
-  console.log("URL:", url);
+  // console.log("=== FETCHING BLOG POST BY SLUG ===");
+  // console.log("Slug:", slug);
+  // console.log("URL:", url);
 
   try {
     const res = await fetch(url, {
@@ -100,7 +100,7 @@ export async function fetchBlogPostBySlug(slug: string) {
 
     // Process rich text content if it exists
     if (post?.contentSection?.content) {
-      console.log("Processing rich text content...");
+      // console.log("Processing rich text content...");
       post.contentSection.content = renderRichText(post.contentSection.content);
     }
 
@@ -210,7 +210,7 @@ function renderLexicalNodes(nodes: any[]): string {
 
       // Handle IMAGES
       if (node.type === "upload") {
-        console.log("Found image node:", node);
+        // console.log("Found image node:", node);
 
         const imageData = node.value;
         let imageUrl = "";
@@ -230,7 +230,7 @@ function renderLexicalNodes(nodes: any[]): string {
           imageUrl = getImageUrl(node.value);
         }
 
-        console.log("Image URL extracted:", imageUrl);
+        // console.log("Image URL extracted:", imageUrl);
 
         if (!imageUrl) {
           console.warn("Could not extract image URL from node:", node);

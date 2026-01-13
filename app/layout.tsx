@@ -142,8 +142,13 @@ export default async function RootLayout({
         />
 
         {/* Webflow JS */}
-        <Script
+        {/* <Script
           src="https://cdn.prod.website-files.com/669e1212d181ce4bfbbea175/js/webflow.1b753ae8bef74b3dee754e747c563cff.js"
+          strategy="afterInteractive"
+        /> */}
+
+        <Script
+          src="/js/webflow.1b753ae8bef74b3dee754e747c563cff.js"
           strategy="afterInteractive"
         />
 

@@ -18,7 +18,7 @@ export async function fetchAboutHeroComponentData() {
     const data = await res.json();
     const activeComponent = data.docs?.[0] || null;
 
-    console.log("Fetched About Hero Component data:", activeComponent);
+    // console.log("Fetched About Hero Component data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching About Hero Component data:", error);

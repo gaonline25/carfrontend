@@ -303,10 +303,10 @@ export async function fetchServiceDetailsBySlug(slug: string) {
   // Build the API URL
   const url = `${API_URL}/api/service-details-component?where[slug][equals]=${slug}&depth=10`;
 
-  console.log("=== FETCH DEBUG INFO ===");
-  console.log("API_URL:", API_URL);
-  console.log("Slug:", slug);
-  console.log("Full URL:", url);
+  // console.log("=== FETCH DEBUG INFO ===");
+  // console.log("API_URL:", API_URL);
+  // console.log("Slug:", slug);
+  // console.log("Full URL:", url);
 
   try {
     const res = await fetch(url, {
@@ -316,8 +316,8 @@ export async function fetchServiceDetailsBySlug(slug: string) {
       },
     });
 
-    console.log("Response status:", res.status);
-    console.log("Response statusText:", res.statusText);
+    // console.log("Response status:", res.status);
+    // console.log("Response statusText:", res.statusText);
 
     if (!res.ok) {
       const errorText = await res.text();
@@ -327,39 +327,39 @@ export async function fetchServiceDetailsBySlug(slug: string) {
     }
 
     const json = await res.json();
-    console.log("Full Payload response:", JSON.stringify(json, null, 2));
+    // console.log("Full Payload response:", JSON.stringify(json, null, 2));
 
     // Check if docs array exists and has items
     const docs = json.docs || [];
-    console.log("Number of docs found:", docs.length);
+    // console.log("Number of docs found:", docs.length);
 
     if (docs.length === 0) {
       console.warn("No documents found for slug:", slug);
       
       // Try to fetch all services to see what slugs exist
       const allServicesUrl = `${API_URL}/api/service-details-component?limit=100`;
-      console.log("Fetching all services from:", allServicesUrl);
+      // console.log("Fetching all services from:", allServicesUrl);
       
       const allRes = await fetch(allServicesUrl);
       if (allRes.ok) {
         const allJson = await allRes.json();
-        console.log("Available slugs:", allJson.docs?.map((d: any) => d.slug));
+        // console.log("Available slugs:", allJson.docs?.map((d: any) => d.slug));
       }
       
       return null;
     }
 
     const service = docs[0];
-    console.log("Service found:", service.slug);
+    // console.log("Service found:", service.slug);
 
     // Process rich text content if it exists
     if (service?.contentSection?.content) {
-      console.log("Processing rich text content...");
-      console.log("Raw content:", service.contentSection.content);
+      // console.log("Processing rich text content...");
+      // console.log("Raw content:", service.contentSection.content);
       service.contentSection.content = renderRichText(
         service.contentSection.content
       );
-      console.log("Processed HTML:", service.contentSection.content);
+      // console.log("Processed HTML:", service.contentSection.content);
     }
 
     return service;
@@ -480,7 +480,7 @@ function renderLexicalNodes(nodes: any[]): string {
 
       // Handle IMAGES - This is the key part!
       if (node.type === "upload") {
-        console.log("Found image node:", node);
+        // console.log("Found image node:", node);
         
         const imageData = node.value;
         let imageUrl = "";
@@ -503,7 +503,7 @@ function renderLexicalNodes(nodes: any[]): string {
           imageUrl = getImageUrl(node.value);
         }
 
-        console.log("Image URL extracted:", imageUrl);
+        // console.log("Image URL extracted:", imageUrl);
         
         if (!imageUrl) {
           console.warn("Could not extract image URL from node:", node);

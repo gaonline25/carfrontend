@@ -20,7 +20,7 @@ export async function fetchPricingSectionComponentData() {
     const data = await res.json();
     const activeComponent = data.docs?.[0] || null;
 
-    console.log("Fetched Pricing Section Component data:", activeComponent);
+    // console.log("Fetched Pricing Section Component data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Pricing Section Component data:", error);

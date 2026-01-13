@@ -397,8 +397,8 @@ export default function BlogDetail({ params }: BlogDetailProps) {
   useEffect(() => {
     const loadData = async () => {
       try {
-        console.log("=== BLOG DETAIL DEBUG ===");
-        console.log("Raw params:", params);
+        // console.log("=== BLOG DETAIL DEBUG ===");
+        // console.log("Raw params:", params);
 
         let resolvedParams: { slug: string };
 
@@ -408,7 +408,7 @@ export default function BlogDetail({ params }: BlogDetailProps) {
           resolvedParams = params;
         }
 
-        console.log("Resolved params:", resolvedParams);
+        // console.log("Resolved params:", resolvedParams);
 
         if (!resolvedParams || !resolvedParams.slug) {
           setError("Invalid URL - no slug provided");

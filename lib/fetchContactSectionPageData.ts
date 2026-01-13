@@ -20,7 +20,7 @@ export async function fetchContactSectionPageData() {
     const data = await res.json();
     const activeComponent =
       data.docs?.find((component: any) => component.isActive) || null;
-    console.log("Fetched Contact Section data:", activeComponent);
+    // console.log("Fetched Contact Section data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Contact Section page data:", error);

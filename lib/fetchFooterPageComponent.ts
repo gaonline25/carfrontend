@@ -20,7 +20,7 @@ export async function fetchFooterPageData() {
     const data = await res.json();
     const activeComponent =
       data.docs?.find((component: any) => component.isActive) || null;
-    console.log("Fetched Footer data:", activeComponent);
+    // console.log("Fetched Footer data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Footer page data:", error);

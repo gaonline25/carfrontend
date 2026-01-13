@@ -20,7 +20,7 @@ export async function fetchNewsletterSectionComponentData() {
     const data = await res.json();
     const activeComponent = data.docs?.[0] || null;
 
-    console.log("Fetched Newsletter Section Component data:", activeComponent);
+    // console.log("Fetched Newsletter Section Component data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Newsletter Section Component data:", error);

@@ -23,7 +23,7 @@ export async function fetchHeroPageComponentData() {
     // Since it's a singleton-like component (only one active), grab the first active doc
     const activeComponent = data.docs?.[0] || null;
 
-    console.log("Fetched Hero Page Component data:", activeComponent);
+    // console.log("Fetched Hero Page Component data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Hero Page Component data:", error);

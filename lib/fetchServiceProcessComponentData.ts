@@ -20,7 +20,7 @@ export async function fetchServiceProcessComponentData() {
     const data = await res.json();
     const activeComponent = data.docs?.[0] || null;
 
-    console.log("Fetched Service Process Component data:", activeComponent);
+    // console.log("Fetched Service Process Component data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Service Process Component data:", error);

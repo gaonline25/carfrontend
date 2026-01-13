@@ -19,7 +19,7 @@ export async function fetchAllServices() {
     }
 
     const data = await res.json();
-    console.log('Fetched services:', data.docs); // Debug log
+    // console.log('Fetched services:', data.docs); // Debug log
     return data.docs || [];
   } catch (error) {
     console.error('Error fetching services:', error);

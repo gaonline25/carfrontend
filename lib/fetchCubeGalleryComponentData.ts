@@ -18,7 +18,7 @@ export async function fetchCubeGalleryComponentData() {
     const data = await res.json();
     const activeComponent = data.docs?.[0] || null;
 
-    console.log("Fetched Cube Gallery Component data:", activeComponent);
+    // console.log("Fetched Cube Gallery Component data:", activeComponent);
     return activeComponent;
   } catch (error) {
     console.error("Error fetching Cube Gallery Component data:", error);

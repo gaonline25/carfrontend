@@ -1455,23 +1455,23 @@ export default function ServiceDetails({ params }: ServiceDetailsProps) {
   useEffect(() => {
     const loadData = async () => {
       try {
-        console.log("=== COMPONENT DEBUG ===");
-        console.log("Raw params:", params);
-        console.log("Is params a Promise?", params instanceof Promise);
+        // console.log("=== COMPONENT DEBUG ===");
+        // console.log("Raw params:", params);
+        // console.log("Is params a Promise?", params instanceof Promise);
 
         // Handle both Promise and direct object
         let resolvedParams: { slug: string };
 
         if (params instanceof Promise) {
-          console.log("Params is a Promise, awaiting...");
+          // console.log("Params is a Promise, awaiting...");
           resolvedParams = await params;
         } else {
-          console.log("Params is a direct object");
+          // console.log("Params is a direct object");
           resolvedParams = params;
         }
 
-        console.log("Resolved params:", resolvedParams);
-        console.log("Slug from params:", resolvedParams?.slug);
+        // console.log("Resolved params:", resolvedParams);
+        // console.log("Slug from params:", resolvedParams?.slug);
 
         if (!resolvedParams || !resolvedParams.slug) {
           console.error("Missing params or slug");
@@ -1482,13 +1482,13 @@ export default function ServiceDetails({ params }: ServiceDetailsProps) {
 
         const slugValue = resolvedParams.slug;
         setSlug(slugValue);
-        console.log("Attempting to fetch service with slug:", slugValue);
+        // console.log("Attempting to fetch service with slug:", slugValue);
 
         const fetchedData = await fetchServiceDetailsBySlug(slugValue);
-        console.log("Fetched data:", fetchedData);
+        // console.log("Fetched data:", fetchedData);
 
         if (fetchedData) {
-          console.log("Service data loaded successfully");
+          // console.log("Service data loaded successfully");
           setData(fetchedData);
           setError(null);
         } else {
